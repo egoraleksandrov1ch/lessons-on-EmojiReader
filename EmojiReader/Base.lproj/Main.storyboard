@@ -63,6 +63,7 @@
                                     <outlet property="descriptionLabel" destination="sDP-Ax-nVF" id="UFc-4z-vy8"/>
                                     <outlet property="emojiLabel" destination="szz-mO-AjY" id="wNC-lt-c50"/>
                                     <outlet property="nameLabel" destination="nVQ-gM-ffh" id="I84-Pg-dXC"/>
+                                    <segue destination="mrt-Wm-ZPg" kind="show" identifier="editEmoji" id="LtT-y8-eVe"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -183,8 +184,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="VQd-KP-KWT">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="0Uj-j2-EUj"/>
-                        <barButtonItem key="rightBarButtonItem" title="Save" style="done" id="Yer-a2-FnP"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="0Uj-j2-EUj">
+                            <connections>
+                                <segue destination="mLB-hL-35R" kind="unwind" unwindAction="unwindSegueWithSegue:" id="Wpd-aZ-JPv"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" style="done" id="Yer-a2-FnP">
+                            <connections>
+                                <segue destination="mLB-hL-35R" kind="unwind" identifier="saveSegue" unwindAction="unwindSegueWithSegue:" id="FN0-e6-aZK"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="descriptionTextField" destination="zry-nf-06z" id="bHt-de-iIT"/>
@@ -194,6 +203,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lEh-Ny-gRt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="mLB-hL-35R" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2727.4809160305344" y="64.788732394366207"/>
         </scene>
@@ -235,6 +245,9 @@
             <point key="canvasLocation" x="1800.7633587786258" y="64.788732394366207"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="LtT-y8-eVe"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
